@@ -7,5 +7,6 @@ Pod::Spec.new do |s|
   s.source       = {:git => "https://code.google.com/p/leveldb"}
   
   s.source_files = 'db/*.{h,cc}', 'port/*.{h,cc}', 'util/*.{h,cc}', 'table/*.{h,cc}'
+  s.exclude_files = '*/*_test.cc'
 
 end
