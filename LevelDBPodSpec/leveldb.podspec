@@ -8,5 +8,8 @@ Pod::Spec.new do |s|
   
   s.source_files = 'db/*.{h,cc}', 'port/*.{h,cc}', 'util/*.{h,cc}', 'table/*.{h,cc}'
   s.exclude_files = 'db/*_test.cc', 'port/*_test.cc', 'util/*_test.cc', 'table/*_test.cc'
+  
+    # s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
+  s.compiler_flags = '-DLEVELDB_PLATFORM_POSIX', '-DOS_MACOSX'
 
 end
