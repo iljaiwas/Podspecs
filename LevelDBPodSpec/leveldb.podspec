@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.authors      = { "Jeffrey Dean" => "jeff@google.com", "Sanjay Ghemawat" => "sanjay@google.com" }
   s.source       = {:git => "https://code.google.com/p/leveldb"}
   
-  s.source_files = 'db/*.{h,cc}', 'port/*.{h,cc}', 'util/*.{h,cc}', 'table/*.{h,cc}'
+  s.source_files = 'db/*.{h,cc}', 'port/*.{h,cc}', 'util/*.{h,cc}', 'table/*.{h,cc}', 'include/leveldb/*.h'
   s.exclude_files = 'db/*_test.cc', 'port/*_test.cc', 'util/*_test.cc', 'table/*_test.cc'
   
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SRCROOT)/leveldb/ $(SRCROOT)/leveldb/include' }
