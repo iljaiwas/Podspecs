@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   
   s.pre_install do |pod, target_definition|
     Dir.chdir(pod.root){ `mv table/block.h table/ldb_block.h` }
-    Dir.chdir(pod.root){ `cd table && sed -i "s,table/block.h,table/ldb_block.h" *` }
+    Dir.chdir(pod.root){ `cd table && sed -i bck "s,table/block\.h,table/ldb_block\.h,g" */*.cc && sed -i bck "s,table/block\.h,table/ldb_block\.h,g" */*.h` }
   end
 end
