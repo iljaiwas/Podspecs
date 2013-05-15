@@ -11,5 +11,8 @@ Pod::Spec.new do |s|
   
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SRCROOT)/leveldb/ $(SRCROOT)/leveldb/include' }
   s.compiler_flags = '-DLEVELDB_PLATFORM_POSIX', '-DOS_MACOSX'
-
+  
+  s.pre_install do |pod, target_definition|
+    Dir.chdir(pod.root){ `mv table/block.h table/ldb_block.h` }
+  end
 end
