@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "leveldb"
+  s.name         = "LevelDB"
   s.version      = "0.0.1"
   s.summary      = "LevelDB is a fast key-value storage library written at Google."
   s.homepage     = "https://code.google.com/p/leveldb/"
@@ -7,10 +7,11 @@ Pod::Spec.new do |s|
   s.source       = {:git => "https://code.google.com/p/leveldb"}
   
   s.source_files = 'db/*.{h,cc}', 'port/*.{h,cc}', 'util/*.{h,cc}', 'table/*.{h,cc}', 'include/leveldb/*.h'
-  s.exclude_files = 'db/*_test.cc', 'port/*_test.cc', 'util/*_test.cc', 'table/*_test.cc'
+  s.exclude_files = 'db/*_test.cc', 'port/*_test.cc', 'util/*_test.cc', 'table/*_test.cc', 'db/db_bench.cc', 'db/leveldb_main.cc', 'port/port_example.h', 'util/testharness.{h,cc}', 'util/testutil.{h,cc}'
   
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SRCROOT)/leveldb/ $(SRCROOT)/leveldb/include' }
+  s.xcconfig   = { 'HEADER_SEARCH_PATHS' => '$(SRCROOT)/leveldb/ $(SRCROOT)/leveldb/include' }
   s.compiler_flags = '-DLEVELDB_PLATFORM_POSIX', '-DOS_MACOSX'
+  s.libraries    = 'c++', 'stdc++' 
   
   s.pre_install do |pod, target_definition|
     Dir.chdir(pod.root){ `mv table/block.h table/ldb_block.h` }
